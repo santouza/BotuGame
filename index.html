@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BotuGame</title>
+    <link rel="stylesheet" type="text/css" href="style/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="px-4 py-5 my-5 text-center" style="background-color: rgba(251, 251, 251, 0.6); border-radius: 10px; margin-left: 15px; margin-right: 15px;">
+        <img class="d-block mx-auto mb-4 logo" src="imgs/logo.png" alt="Logo do jogo">
+        </h1>
+        <div class="col-lg-6 mx-auto">
+            <p class="lead mb-4">
+                <font dir="auto" style="vertical-align: inherit;">
+                    Aprenda a previnir o Botulismo de um jeito divertido!
+                </font>
+            </p>
+            <div class="d-grid gap-2 justify-content-sm-center">
+                <button type="button" class="btn btn-success btn-lg px-4 gap-3" onclick="startGame()" class="btn"><i class="bi bi-caret-right-fill"></i>Iniciar jogo</button>
+                <button type="button" class="btn btn-outline-success btn-lg px-4" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                Sobre o Botulismo
+            </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Sobre o Botulismo</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body" style="text-align: justify;">
+                                <h5>O que é?</h5>
+                                <p>O botulismo é uma intoxicação rara, causada por toxina produzida pela bactéria <i>Clostridium botulinum</i>.</p>
+                                <h5>O que causa?</h5>
+                                <p>Alimentos mal conservados, armazenados de forma incorreta, enlatados estufados ou sem higiene adequada.</p>
+                                <h5>Principais sintomas</h5>
+                                <p>Visão dupla, boca seca, dificuldade para engolir, fraqueza muscular.</p>
+                                <h5>Como prevenir?</h5>
+                                <p>Armazene alimentos corretamente, ferva conservas caseiras, não consuma enlatados estufados ou com mau cheiro.</p>
+                                <h5>Como tratar?</h5>
+                                <p>Procure atendimento médico imediato. O tratamento pode incluir soro antibotulínico e cuidados hospitalares.</p>
+                            </div>
+                            <div class="modal-footer">
+                                Para mais informações acesso o portal do <strong><a href="https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/b/botulismo" style="color: #000">Ministério da Saúde</a></strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="script/app.js" defer></script>
+</body>
+
+</html>

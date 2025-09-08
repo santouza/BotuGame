@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BotuGame</title>
+    <link rel="stylesheet" href="../style/styles.css" />
+</head>
+
+<body>
+    <div class="app" role="application" aria-labelledby="appTitle">
+        <header>
+            <div class="brand">
+                <div class="logo" aria-hidden="true"><img src="../imgs/logo.png" style="width: 200px;"></div>
+
+            </div>
+            <div class="score" aria-live="polite">
+                <span>⭐ Pontos: <strong id="score">0</strong></span>
+                <span class="pill" title="Fase atual"><span id="stagePill">Menu</span></span>
+            </div>
+        </header>
+
+        <main id="view" tabindex="-1"></main>
+
+        <div class="footer">
+            <div class="hint"><strong>Dica:</strong> use teclado também — Tab/Enter/Espaço funcionam.</div>
+            <div>
+                <button class="btn ghost" id="btnReset" aria-label="Recomeçar jogo">↺ Recomeçar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" role="status" aria-live="polite" id="toast"></div>
+
+    <script src="../script/app.js" defer></script>
+</body>
+
+</html>
