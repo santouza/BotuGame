@@ -72,6 +72,9 @@ body::before {
 }
 
 @media screen and (max-width: 991px) {
+    body {
+        max-width: 100%
+    }
     .logo {
         max-width: 250px;
     }
@@ -90,6 +93,7 @@ body::before {
 
 @media screen and (max-width: 991px) {
     body {
+        max-width: 100%;
         background-size: 200px;
     }
     .container .bg-light {
