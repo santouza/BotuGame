@@ -63,7 +63,6 @@ body::before {
     background-color: rgba(251, 251, 251, 0.6);
     border-radius: 10px;
     width: 130vh;
-    height: 70vh;
 }
 
 .logo {
