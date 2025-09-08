@@ -75,6 +75,10 @@ body::before {
     .logo {
         max-width: 180px;
     }
+    .container .bg-light {
+        padding: 1rem;
+        max-width: 90%;
+    }
     .lead {
         font-size: 1rem;
     }
