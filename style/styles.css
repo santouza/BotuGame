@@ -85,17 +85,31 @@ body::before {
     }
 }
 
-
-/* Celulares (até 576px) */
-
+@media screen and (max-width: 991px) {
+    body {
+        background-size: 120px;
+    }
+    .container .bg-light {
+        padding: 1rem;
+    }
+    .logo {
+        max-width: 180px;
+    }
+    .lead {
+        font-size: 1rem;
+    }
+    .btn-lg {
+        width: 100%;
+        font-size: 0.1rem;
+        padding: 0.5rem 0.8rem;
+    }
+    
 @media screen and (max-width: 576px) {
     body {
         background-size: 120px;
-        /* deixa os desenhos menores */
     }
     .container .bg-light {
         padding: 1.2rem;
-        /* menos espaço interno */
     }
     .logo {
         max-width: 140px;
@@ -105,7 +119,6 @@ body::before {
     }
     .btn-lg {
         width: 100%;
-        /* botões ocupam toda a largura no celular */
         font-size: 0.9rem;
         padding: 0.5rem 0.8rem;
     }
