@@ -11,7 +11,19 @@
 </head>
 
 <body>
-    <div class="px-4 py-5 my-5 text-center" style="background-color: rgba(251, 251, 251, 0.6); border-radius: 10px; margin-left: 15px; margin-right: 15px;">
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
+
+    <div class="container px-4 py-5 my-5 text-center">
         <img class="d-block mx-auto mb-4 logo" src="imgs/logo.png" alt="Logo do jogo">
         </h1>
         <div class="col-lg-6 mx-auto">
