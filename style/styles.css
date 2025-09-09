@@ -110,10 +110,10 @@ body::before {
         font-size: 0.9rem;
         padding: 0.5rem 0.8rem;
     }
-    .header-logo {
+    .brand {
         max-width: 100px;
     }
-    .pontos {
+    .score {
         font-size: 16px;
     }
 }
