@@ -89,7 +89,7 @@ body::before {
     }
     main {
         flex: 1;
-  padding: 80px;
+  padding: 800px;
   min-height: calc(100vh - 100px);
     }
     .lead {
@@ -103,14 +103,13 @@ body::before {
     
 @media screen and (max-width: 576px) {
     body {
-        background-size: 120px;
-        padding-bottom: 80px;
+        background-size: 100px;
     }
     main {
         flex: 1;
-  padding: 20px 16px 80px;
+  padding: 20px 16px 800px;
   box-sizing: border-box;
-  min-height: calc(100vh - 100px);
+  min-height: calc(100vh - 120px);
     }
     .container .bg-light {
         padding: 1.2rem;
