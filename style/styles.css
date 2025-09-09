@@ -96,7 +96,7 @@ body::before {
 @media screen and (max-width: 576px) {
     body {
         background-size: 120px;
-        padding: 80px;
+        padding-bottom: 80px;
     }
     .main {
         padding: 150px;
