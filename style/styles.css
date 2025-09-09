@@ -101,7 +101,7 @@ body::before {
     .container .bg-light {
         padding: 1.2rem;
         max-width: 90%;
-        padding-bottom: 150px;
+        padding-bottom: 10%;
     }
     .logo {
         max-width: 140px;
