@@ -110,6 +110,12 @@ body::before {
         font-size: 0.9rem;
         padding: 0.5rem 0.8rem;
     }
+    .header-logo {
+        max-width: 100px;
+    }
+    .pontos {
+        font-size: 16px;
+    }
 }
 
 @keyframes pulse {
