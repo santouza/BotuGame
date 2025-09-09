@@ -98,6 +98,9 @@ body::before {
         background-size: 120px;
         padding: 80px;
     }
+    .app {
+        padding:150px;
+    }
     .container .bg-light {
         padding: 1.2rem;
         max-width: 90%;
