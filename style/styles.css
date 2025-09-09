@@ -97,6 +97,9 @@ body::before {
         font-size: 1rem;
         padding: 0.6rem 1rem;
     }
+    .logo {
+        content: url(../pages/logo-min.png);
+    }
 }
     
 @media screen and (max-width: 576px) {
