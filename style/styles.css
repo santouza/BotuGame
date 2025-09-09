@@ -82,7 +82,7 @@ body::before {
     .container .bg-light {
         padding: 1rem;
         max-width: 90%;
-        padding-bottom: 80px;
+        padding-bottom: 150px;
     }
     .lead {
         font-size: 1rem;
@@ -101,7 +101,7 @@ body::before {
     .container .bg-light {
         padding: 1.2rem;
         max-width: 90%;
-        padding-bottom: 80px;
+        padding-bottom: 150px;
     }
     .logo {
         max-width: 140px;
