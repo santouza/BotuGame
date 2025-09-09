@@ -84,6 +84,12 @@ body::before {
         max-width: 90%;
         padding-bottom: 150px;
     }
+    main {
+        flex: 1;
+  padding: 20px 16px 80px;
+  box-sizing: border-box;
+  min-height: calc(100vh - 100px);
+    }
     .lead {
         font-size: 1rem;
     }
