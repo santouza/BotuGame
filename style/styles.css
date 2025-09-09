@@ -74,6 +74,7 @@ body::before {
 @media screen and (max-width: 991px) {
     body {
         background-size: 120px;
+        padding-bottom: 80px;
     }
     .logo {
         max-width: 250px;
@@ -81,6 +82,7 @@ body::before {
     .container .bg-light {
         padding: 1rem;
         max-width: 90%;
+        padding-bottom: 80px;
     }
     .lead {
         font-size: 1rem;
@@ -94,10 +96,12 @@ body::before {
 @media screen and (max-width: 576px) {
     body {
         background-size: 120px;
+        padding-bottom: 80px;
     }
     .container .bg-light {
         padding: 1.2rem;
         max-width: 90%;
+        padding-bottom: 80px;
     }
     .logo {
         max-width: 140px;
