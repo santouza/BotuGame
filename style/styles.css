@@ -96,7 +96,7 @@ body::before {
 @media screen and (max-width: 576px) {
     body {
         background-size: 120px;
-        padding-bottom: 80px;
+        padding: 80px;
     }
     .container .bg-light {
         padding: 1.2rem;
