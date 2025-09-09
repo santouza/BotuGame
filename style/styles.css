@@ -99,7 +99,7 @@ body::before {
         padding-bottom: 80px;
     }
     .main {
-        margin-bottom: 100%;
+        width: 100%;
     }
     .container .bg-light {
         padding: 1.2rem;
