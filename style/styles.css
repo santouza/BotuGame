@@ -88,7 +88,7 @@ body::before {
         padding-bottom: 150px;
     }
     main {
-        padding-bottom: 500px;
+        padding-bottom: 20%;
     }
     .lead {
         font-size: 1rem;
@@ -104,10 +104,7 @@ body::before {
         background-size: 100px;
     }
     main {
-        flex: 1;
-  padding: 20px 16px 800px;
-  box-sizing: border-box;
-  min-height: calc(100vh - 120px);
+        padding-bottom: 20%;
     }
     .container .bg-light {
         padding: 1.2rem;
