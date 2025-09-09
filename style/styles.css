@@ -99,7 +99,8 @@ body::before {
         padding: 80px;
     }
     .app {
-        padding:150px;
+        padding: 150px;
+        margin-bottom: 10%;
     }
     .container .bg-light {
         padding: 1.2rem;
