@@ -98,8 +98,11 @@ body::before {
         background-size: 120px;
         padding-bottom: 80px;
     }
-    .main {
-        width: 100%;
+    main {
+        flex: 1;
+  padding: 20px 16px 80px;
+  box-sizing: border-box;
+  min-height: calc(100vh - 100px);
     }
     .container .bg-light {
         padding: 1.2rem;
