@@ -86,8 +86,7 @@ body::before {
     }
     main {
         flex: 1;
-  padding: 20px 16px 80px;
-  box-sizing: border-box;
+  padding: 80px;
   min-height: calc(100vh - 100px);
     }
     .lead {
