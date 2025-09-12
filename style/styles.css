@@ -75,10 +75,6 @@ body::before {
 }
 
 @media screen and (max-width: 991px) {
-    body {
-        background-size: 120px;
-        padding-bottom: 80px;
-    }
     .logo {
         max-width: 250px;
     }
@@ -103,9 +99,6 @@ body::before {
 }
     
 @media screen and (max-width: 576px) {
-    body {
-        background-size: 100px;
-    }
     main {
         padding-bottom: 20%;
     }
