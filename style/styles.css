@@ -75,6 +75,10 @@ body::before {
 }
 
 @media screen and (max-width: 991px) {
+    body {
+    align-items: stretch;   /* deixa o conteúdo ocupar toda a largura */
+    justify-content: flex-start; /* começa do topo, não no meio */
+  }
     .logo {
         max-width: 250px;
     }
@@ -99,6 +103,10 @@ body::before {
 }
     
 @media screen and (max-width: 576px) {
+    body {
+    align-items: stretch;   /* deixa o conteúdo ocupar toda a largura */
+    justify-content: flex-start; /* começa do topo, não no meio */
+  }
     main {
         min-height: 80vh;
     }
