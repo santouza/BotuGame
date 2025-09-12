@@ -84,7 +84,7 @@ body::before {
         padding-bottom: 150px;
     }
     main {
-        padding-bottom: 20%;
+        min-height: 70vh;
     }
     .lead {
         font-size: 1rem;
@@ -100,7 +100,7 @@ body::before {
     
 @media screen and (max-width: 576px) {
     main {
-        padding-bottom: 20%;
+        min-height: 80vh;
     }
     .container .bg-light {
         padding: 1.2rem;
