@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BotuGame</title>
+    <link rel="stylesheet" href="style/styles.css" />
+    <link rel="icon" type="image/png" href="imgs/icon.png">
+</head>
+
+<body>
+    <!-- VLibras -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
+    <!-- TELA INICIAL -->
+    <div id="tela-inicial" style="text-align:center; padding: 50px;">
+        <img class="logo" src="imgs/logo.png" alt="Logo do jogo" style="width:500px; margin-bottom: 30px;">
+
+        <div style="max-width: 600px; margin: 0 auto;">
+            <p class="lead" style="font-size:1.2rem; margin-bottom: 30px;">
+                Aprenda a previnir o Botulismo de um jeito divertido!
+            </p>
+
+            <div style="display:flex; justify-content:center; gap: 20px; flex-wrap: wrap;">
+                <button onclick="iniciarJogo()" style="background-color:#28a745; color:white; border:none; padding:15px 30px; font-size:1rem; border-radius:8px; cursor:pointer;">
+                    Iniciar jogo
+                </button>
+
+                <button id="btnSobreBotulismo" onclick="abrirModal()" style="background-color:white; border:2px solid #28a745; color:#28a745; padding:15px 30px; font-size:1rem; border-radius:8px; cursor:pointer;">
+                    Sobre o Botulismo
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL -->
+    <div id="modalBotulismo" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); justify-content:center; align-items:center;">
+        <div style="background:white; padding:20px; max-width:600px; width:90%; border-radius:10px; overflow-y:auto; max-height:80vh; text-align:left;">
+            <h2 id="modalTitle">Sobre o Botulismo</h2>
+            <div id="modalDesc">
+                <h5>O que é?</h5>
+                <p>O botulismo é uma intoxicação rara, causada por toxina produzida pela bactéria <i>Clostridium botulinum</i>.</p>
+                <h5>O que causa?</h5>
+                <p>Alimentos mal conservados, armazenados de forma incorreta, enlatados estufados ou sem higiene adequada.</p>
+                <h5>Principais sintomas</h5>
+                <p>Visão dupla, boca seca, dificuldade para engolir, fraqueza muscular.</p>
+                <h5>Como prevenir?</h5>
+                <p>Armazene alimentos corretamente, ferva conservas caseiras, não consuma enlatados estufados ou com mau cheiro.</p>
+                <h5>Como tratar?</h5>
+                <p>Procure atendimento médico imediato. O tratamento pode incluir soro antibotulínico e cuidados hospitalares.</p>
+                <p style="text-align: center;">Mais informações no <a style="color: #000; font-weight: bold; text-decoration: none;" href="https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/b/botulismo" target="_blank">Ministério da Saúde</a></p>
+            </div>
+            <div style="text-align:center; margin-top:20px;">
+                <button id="fecharModalBtn" onclick="fecharModal()" aria-label="Fechar modal sobre botulismo" style="padding:10px 20px; border:none; border-radius:6px; background:#28a745; color:white; cursor:pointer;">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TELA JOGO -->
+    <div id="tela-jogo" style="display: none;">
+        <div class="app" role="application" aria-labelledby="appTitle">
+            <header>
+                <div class="brand">
+                    <div class="logo logo-min" aria-hidden="true">
+                        <img src="imgs/logo.png" alt="Logo do BotuGame" style="width: 200px;">
+                    </div>
+                </div>
+                <div class="score" aria-live="polite">
+                    <span>⭐ Pontos: <strong id="score">0</strong></span>
+                    <span class="pill" title="Fase atual"><span id="stagePill">Menu</span></span>
+                </div>
+            </header>
+
+            <main id="view" tabindex="-1"></main>
+
+            <div class="footer">
+                <div class="hint"><strong>Dica:</strong> use teclado também — Tab/Enter/Espaço funcionam.</div>
+                <div>
+                    <button class="btn ghost" id="btnReset" aria-label="Recomeçar jogo">↺ Recomeçar</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="toast" role="status" aria-live="polite" id="toast"></div>
+    </div>
+
+    <!-- CONTAINER DR. HIGIENE -->
+    <div id="drHigieneContainer" class="hidden" aria-hidden="true">
+        <div id="drHigieneBaloon" class="dr-higiene-baloon" role="status" aria-live="polite"></div>
+        <img id="drHigieneImg" src="imgs/drhigi.png" alt="Dra. Higiene">
+    </div>
+
+    <script src="script/app.js" defer></script>
+    <script>
+function iniciarJogo() {
+    document.getElementById('tela-inicial').style.display = 'none';
+    document.getElementById('tela-jogo').style.display = 'flex';
+
+    setStage('menu');
+    mostrarDra();
+    drHigieneFala('Olá! Eu sou a Dra. Higiene. Vamos aprender a prevenir o Botulismo de uma forma divertida?');
+}
+
+
+        function abrirModal() {
+            const modal = document.getElementById('modalBotulismo');
+            modal.style.display = 'flex';;
+        }
+
+        function fecharModal() {
+            const modal = document.getElementById('modalBotulismo');
+            modal.style.display = 'none';;
+        }
+    </script>
+</body>
+</html>
