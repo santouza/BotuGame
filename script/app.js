@@ -506,12 +506,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function drHigieneFala(texto) {
-    
     let balao = document.getElementById('drHigieneBaloon');
+    const container = document.getElementById('drHigieneContainer');
     if (!balao) {
         balao = document.createElement('div');
         balao.id = 'drHigieneBaloon';
-        document.getElementById('drHigieneContainer').appendChild(balao);
+        if (container) container.appendChild(balao);
     }
 
     balao.textContent = texto;
@@ -525,61 +525,74 @@ function drHigieneFala(texto) {
         }, 500);
     };
 
-    window.speechSynthesis.cancel();
+    const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
 
-    const falar = () => {
+    if (window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+    }
+
+    const speakNow = () => {
         const fala = new SpeechSynthesisUtterance(texto);
         fala.lang = 'pt-BR';
-        fala.pitch = 5;
-        fala.rate = 2;
+
+        fala.rate = isMobile ? 0.85 : 1.0;
+        fala.pitch = 1.05;
 
         const vozes = speechSynthesis.getVoices();
         const vozFeminina = vozes.find(v =>
-            v.lang.startsWith('pt') &&
-            (v.name.includes('Microsoft Maria') ||
-             v.name.includes('Luciana') ||
-             v.name.includes('Ana'))
+            v.lang && v.lang.startsWith('pt') &&
+            (v.name.includes(' Microsoft Maria') || v.name.includes('Luciana') || v.name.includes('Ana'))
         );
         if (vozFeminina) fala.voice = vozFeminina;
 
-        fala.onend = esconderBalao;
+        window._lastUtterance = fala;
 
-        if (!speechSynthesis.speaking) {
+        fala.onend = () => {
+            window._lastUtterance = null;
+            esconderBalao();
+        };
+
+        fala.onerror = () => {
+            window._lastUtterance = null;
+            esconderBalao();
+        };
+
+        try {
             speechSynthesis.speak(fala);
+        } catch (err) {
+            console.warn('speechSynthesis.speak falhou:', err);
+            esconderBalao();
         }
     };
 
-    if (!window.voicesInitialized) {
-        window.voicesInitialized = true;
-        speechSynthesis.addEventListener('voiceschanged', () => {
-            if (!speechSynthesis.speaking) falar();
-        });
+    if (speechSynthesis.getVoices().length === 0) {
+        const onVoices = () => {
+            speechSynthesis.removeEventListener('voiceschanged', onVoices);
+            setTimeout(speakNow, 200);
+        };
+        speechSynthesis.addEventListener('voiceschanged', onVoices);
+    } else {
+        speakNow();
     }
 
-    if (speechSynthesis.getVoices().length > 0) {
-        falar();
-    } else {
-        setTimeout(() => {
-            if (!speechSynthesis.speaking) falar();
-        }, 8000);
-    }
 }
 
 function pararDraHigiene() {
-    
-  if (window.speechSynthesis && speechSynthesis.speaking) {
-    speechSynthesis.cancel(); 
-  }
-
-  const balao = document.getElementById('drHigieneBaloon');
-  if (balao) {
-    balao.classList.remove('show');
-    balao.style.opacity = '0';
-  }
-
-  if (Mobi/Android/i.test(navigator.useAgent)) {
-    fala.rate = 0.8;
-    } else {
-        fala.rate = 0.9;
+    if (window.speechSynthesis) {
+        try {
+            speechSynthesis.cancel();
+        } catch (e) {
+            console.warn('Erro ao cancelar speechSynthesis:', e);
+        }
     }
+
+    const balao = document.getElementById('drHigieneBaloon');
+    if (balao) {
+        balao.classList.remove('show');
+        balao.style.opacity = '0';
+    }
+
+    window._lastUtterance = null;
+}
+
 }
