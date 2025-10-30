@@ -565,11 +565,10 @@ function drHigieneFala(texto) {
     }
 }
 
-// Função para parar a fala e esconder o balão
 function pararDraHigiene() {
     
   if (window.speechSynthesis && speechSynthesis.speaking) {
-    speechSynthesis.cancel(); // Interrompe a fala
+    speechSynthesis.cancel(); 
   }
 
   const balao = document.getElementById('drHigieneBaloon');
@@ -577,4 +576,10 @@ function pararDraHigiene() {
     balao.classList.remove('show');
     balao.style.opacity = '0';
   }
+
+  if (Mobi/Android/i.test(navigator.useAgent)) {
+    fala.rate = 0.8;
+    } else {
+        fala.rate = 0.9;
+    }
 }
