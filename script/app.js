@@ -61,7 +61,7 @@ function drHigieneFala(texto) {
     const vozes = speechSynthesis.getVoices();
     const vozFeminina = vozes.find(v =>
         v.lang.startsWith('pt') &&
-        (v.name.includes(' Microsoft Maria') || v.name.includes('Luciana') || v.name.includes('Ana'))
+        (v.name.includes('Microsoft Maria') || v.name.includes('Luciana') || v.name.includes('Ana'))
     );
     if (vozFeminina) fala.voice = vozFeminina;
 
