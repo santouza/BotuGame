@@ -80,12 +80,15 @@ body::before {
         min-height: 100vh;
     }
     .logo {
-        max-width: 250px;
+        max-width: 500px;
     }
     .container .bg-light {
         padding: 1rem;
         max-width: 90%;
         padding-bottom: 150px;
+    }
+    header {
+        padding: 1px;
     }
     main {
         flex: 1;
@@ -100,24 +103,41 @@ body::before {
     }
     .logo-min {
         content: url(../imgs/logo-min.png);
+        width: 70px;
+        padding-left: 0;
     }
+    #drHigieneImg {
+    max-width: 150px;
+    right: -10%;
+}
+.dr-higiene-baloon {
+    max-width: 50px;
+    font-size: 1px;
+}
 }
 
 @media screen and (max-width: 576px) {
+    body {
+        justify-content: center;
+    }
     main {
         flex: 1;
         min-height: 70vh;
+    }
+    #tela-jogo {
+        justify-content: center;
     }
     .container .bg-light {
         padding: 1.2rem;
         max-width: 90%;
         padding-bottom: 10%;
+        justify-content: center;
     }
     .logo {
-        max-width: 140px;
+        max-width: 200px;
     }
     .lead {
-        font-size: 0.9rem;
+        font-size: 0.1rem;
     }
     .btn-lg {
         width: 100%;
@@ -128,8 +148,17 @@ body::before {
         max-width: 100px;
     }
     .score {
-        font-size: 16px;
+        font-size: 14px;
     }
+     header {
+        padding: 1px;
+    }
+    .dr-higiene-baloon{
+    max-width: 80px;
+}
+#drHigieneImg {
+    width: 200px;
+}
 }
 
 @keyframes pulse {
