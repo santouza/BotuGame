@@ -506,12 +506,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function drHigieneFala(texto) {
+    
     let balao = document.getElementById('drHigieneBaloon');
-    const container = document.getElementById('drHigieneContainer');
     if (!balao) {
         balao = document.createElement('div');
         balao.id = 'drHigieneBaloon';
-        if (container) container.appendChild(balao);
+        document.getElementById('drHigieneContainer').appendChild(balao);
     }
 
     balao.textContent = texto;
@@ -525,59 +525,61 @@ function drHigieneFala(texto) {
         }, 500);
     };
 
-    // Detecta se é iPhone/iPad (Safari)
-    const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-    const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+    window.speechSynthesis.cancel();
 
-    // Cancela fala anterior
-    if (window.speechSynthesis) {
-        window.speechSynthesis.cancel();
-    }
+    const falar = () => {
+        const fala = new SpeechSynthesisUtterance(texto);
+        fala.lang = 'pt-BR';
+        fala.pitch = 5;
+        fala.rate = 2;
 
-    // Caso iOS: simular fala lenta com pausas entre frases
-    if (isIOS) {
-        const partes = texto.split(/([,.!?])/).filter(t => t.trim());
-        let i = 0;
+        const vozes = speechSynthesis.getVoices();
+        const vozFeminina = vozes.find(v =>
+            v.lang.startsWith('pt') &&
+            (v.name.includes('Microsoft Maria') ||
+             v.name.includes('Luciana') ||
+             v.name.includes('Ana'))
+        );
+        if (vozFeminina) fala.voice = vozFeminina;
 
-        function falarParte() {
-            if (i >= partes.length) {
-                esconderBalao();
-                return;
-            }
-            const fala = new SpeechSynthesisUtterance(partes[i]);
-            fala.lang = 'pt-BR';
-            fala.rate = 1; // Safari ignora, mas deixamos por segurança
+        fala.onend = esconderBalao;
+
+        if (!speechSynthesis.speaking) {
             speechSynthesis.speak(fala);
-            fala.onend = () => {
-                i++;
-                // pausa de 500ms entre frases para parecer mais lento
-                setTimeout(falarParte, 600);
-            };
         }
+    };
 
-        falarParte();
-        return;
+    if (!window.voicesInitialized) {
+        window.voicesInitialized = true;
+        speechSynthesis.addEventListener('voiceschanged', () => {
+            if (!speechSynthesis.speaking) falar();
+        });
     }
 
-    // Android ou desktop → respeita rate
-    const fala = new SpeechSynthesisUtterance(texto);
-    fala.lang = 'pt-BR';
-    fala.rate = isMobile ? 0.65 : 1.0; // bem mais lento no celular Android
-    fala.pitch = 1.0;
-
-    const vozes = speechSynthesis.getVoices();
-    const vozFeminina = vozes.find(v =>
-        v.lang.startsWith('pt') &&
-        (v.name.includes(' Microdoft Maria') || v.name.includes('Luciana') || v.name.includes('Ana'))
-    );
-    if (vozFeminina) fala.voice = vozFeminina;
-
-    fala.onend = esconderBalao;
-    fala.onerror = esconderBalao;
-
-    window._lastUtterance = fala;
-    speechSynthesis.speak(fala);
+    if (speechSynthesis.getVoices().length > 0) {
+        falar();
+    } else {
+        setTimeout(() => {
+            if (!speechSynthesis.speaking) falar();
+        }, 8000);
+    }
 }
 
+function pararDraHigiene() {
+    
+  if (window.speechSynthesis && speechSynthesis.speaking) {
+    speechSynthesis.cancel(); 
+  }
 
+  const balao = document.getElementById('drHigieneBaloon');
+  if (balao) {
+    balao.classList.remove('show');
+    balao.style.opacity = '0';
+  }
+
+  if (Mobi/Android/i.test(navigator.useAgent)) {
+    fala.rate = 0.8;
+    } else {
+        fala.rate = 0.9;
+    }
 }
