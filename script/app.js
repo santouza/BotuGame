@@ -535,8 +535,8 @@ function drHigieneFala(texto) {
         const fala = new SpeechSynthesisUtterance(texto);
         fala.lang = 'pt-BR';
 
-        fala.rate = isMobile ? 0.65 : 1.0;
-        fala.pitch = 1.0;
+        fala.rate = isMobile ? 0.85 : 1.0;
+        fala.pitch = 1.05;
 
         const vozes = speechSynthesis.getVoices();
         const vozFeminina = vozes.find(v =>
